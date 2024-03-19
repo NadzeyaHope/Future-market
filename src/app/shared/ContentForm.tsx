@@ -1,72 +1,76 @@
-import React, { FormEventHandler, useState } from 'react';
+import React, { FormEventHandler, useEffect, useState } from 'react';
 import MyInput from '@/app/shared/InputMy';
 import CheckboxForm from '@/app/shared/CheckboxForm';
 import clsx from 'clsx';
 import LinkIcon from '@/app/icons/LinkIcon';
 import { Button } from '@nextui-org/button';
-import { Checkbox } from '@nextui-org/react';
-import { useRouter } from 'next/router';
 import SussesModalContent from '@/app/shared/SussesModalContent';
 
-interface Props {
-	nameLocal : string;
-	phoneLocal : string;
-}
-const ContentForm = (props : Props) => {
-	const {nameLocal, phoneLocal} = props;
-	const [name, setName] = useState(nameLocal);
-	const [phone, setPhone] = useState(phoneLocal);
+
+const ContentForm = () => {
+	const [name, setName] = useState('');
+	const [phone, setPhone] = useState('');
 	const [check, setCheck] = useState(false);
 	const [isInvalidName, setIsInvalidName] = useState(false);
 	const [isInvalidPhone, setIsInvalidPhone] = useState(false);
 	const [isInvalidCheck, setIsInvalidCheck] = useState(false);
 	const [susses, setSusses] = useState(false);
 
-	const onChangeName = (e : any) => {
+	useEffect(() => {
+		const name = localStorage.getItem('name') === null ? '' : localStorage.getItem('name');
+		const phone = localStorage.getItem('phone') === null ? '' : localStorage.getItem('phone');
+		setName(name);
+		setPhone(phone);
+	}, []);
+
+
+	const onChangeName = (e: any) => {
 		setIsInvalidName(false);
-		setName(e.target.value)
-	}
-	const onChangePhone = (e : any) => {
-		setPhone(e.target.value)
-		setIsInvalidPhone(false)
-	}
+		setName(e.target.value);
+	};
+	const onChangePhone = (e: any) => {
+		setPhone(e.target.value);
+		setIsInvalidPhone(false);
+	};
 	const onChangeCheck = () => {
-		setCheck(!check)
-		setIsInvalidCheck(false)
-	}
-	const onSubmit: FormEventHandler =  (event) => {
+		setCheck(!check);
+		setIsInvalidCheck(false);
+	};
+	const onSubmit: FormEventHandler = (event) => {
 		event.preventDefault();
-		if(name === ''){
+		if (name === '') {
 			setIsInvalidName(true);
-			return
+			return;
 		}
-		if(phone === ''){
+		if (phone === '') {
 			setIsInvalidPhone(true);
-			return
+			return;
 		}
-		if(check){
-			setIsInvalidCheck(true)
-			return
+		if (check) {
+			setIsInvalidCheck(true);
+			return;
 		}
-		localStorage.setItem('name', name)
-		localStorage.setItem('phone', phone)
+		localStorage.setItem('name', name);
+		localStorage.setItem('phone', phone);
 		setSusses(true);
 	};
 	return (
 		<>
 			{!susses ?
 				<form onSubmit={onSubmit} className={'max-w-lg m-auto space-y-[66px]'}>
-					<p className={'text-4xl'} >Закажите обратный звонок</p>
+					<p className={'text-4xl'}>Закажите обратный звонок</p>
 					<MyInput
 						isInvalid={isInvalidName}
 						value={name}
-						onChange={(e)=>onChangeName(e)}
+						onChange={(e) => onChangeName(e)}
 						label={'ИМЯ'}
 					/>
 					<MyInput
 						isInvalid={isInvalidPhone}
 						value={phone}
-						onChange={(e)=>{onChangePhone(e)}}
+						onChange={(e) => {
+							onChangePhone(e);
+						}}
 						label={'ТЕЛЕФОН'}
 					/>
 					<CheckboxForm

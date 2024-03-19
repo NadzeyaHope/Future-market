@@ -1,24 +1,27 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal, ModalContent, useDisclosure } from '@nextui-org/react';
 import ButtonLink from '@/app/shared/ButtonLink';
 import ContentForm from '@/app/shared/ContentForm';
+import clsx from 'clsx';
+import LinkIcon from '@/app/icons/LinkIcon';
+import { white } from 'next/dist/lib/picocolors';
+
 
 const ButtonModal = () => {
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-	const name = localStorage.getItem('name') === null ? '' : localStorage.getItem('name');
-	const phone = localStorage.getItem('phone') === null ? '' : localStorage.getItem('phone');
-
 
 	return (
-		<div className={'flex space-x-10 justify-between'}>
+		<div className={'block md:flex space-x-10 justify-between'}>
 			<ButtonLink
 				onOpen={onOpen}
 				lineColor={'#133457'}
 				className={'bg-[#FFFFFF]'}
 			>
 				Записаться на консультацию
+				<div className={clsx('h-full w-0.5', `bg-white`)}/>
+				<LinkIcon color={'#0B3461'} className={'w-full'}/>
 			</ButtonLink>
 			<ButtonLink
 				onOpen={onOpen}
@@ -44,10 +47,7 @@ const ButtonModal = () => {
 			>
 				<ModalContent>
 					{(onClose) => (
-						<ContentForm
-							nameLocal={String(name)}
-							phoneLocal={String(phone)}
-						/>
+						<ContentForm/>
 					)}
 				</ModalContent>
 			</Modal>

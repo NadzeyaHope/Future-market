@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
 	return (
 		<html lang="en">
-		<body className={clsx(`font-sans ${raleway.variable}`, 'bg-hero-pattern max-w-full')}>
+		<body className={clsx(`font-sans ${raleway.variable}`, 'bg-hero-pattern')}>
 		<NextProvider>
 			{children}
 		</NextProvider>

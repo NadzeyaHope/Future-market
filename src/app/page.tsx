@@ -5,7 +5,7 @@ import Content from '@/app/widgets/Content';
 
 const Home = () => {
 	return (
-		<Container>
+		<Container className={'md:h-full'} >
 			<Header/>
 			<Content/>
 		</Container>

@@ -8,7 +8,7 @@ import { montserrat } from '@/app/shared/NextProvider';
 
 const Header = () => {
 	return (
-		<div className={clsx('flex pt-10 justify-between gap-3',`font-sans ${montserrat.variable}`)}>
+		<div className={clsx('flex pt-7 md:pt-10 justify-between md:gap-3',`font-sans ${montserrat.variable}`)}>
 			<Logo/>
 			<Navbar/>
 			<PhoneNumber/>

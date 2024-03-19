@@ -3,7 +3,7 @@ import React from 'react';
 const LogoIcon = () => {
 	return (
 		<svg
-			className={'h-[14px]'}
+			className={'h-2.5 md:h-[14px]'}
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 169 16"
