@@ -13,15 +13,18 @@ export default {
         xs: ['14px', '17.19px'],
         sm: ['16px', '24px'],
         lg: ['18px', '22px'],
-        'xl': ['24px', '31.2px'],
+        'xl': ['20px', '24px'],
         '2xl': ['24px', '36px'],
-        '3xl': ['30px', '39px'],
-        '4xl': ['36px', '46.8px'],
+        '3xl': ['40px', '56.52px'],
+        '4xl': ['50px', '74px'],
         '5xl': ['65px', '87.94px']
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      backgroundImage: {
+        'hero-pattern': "url('/background.png')",
+      }
     },
   },
   darkMode: "class",
@@ -29,7 +32,7 @@ export default {
     themes: {
       light: {
         colors: {
-          default: "#FFFFFF",
+          default: "#0F1D45",
           primary: "#68CFA3",
           content1: "#181D29",
           content2: "#F1F1F1",
@@ -43,7 +46,7 @@ export default {
       },
       dark: {
         colors: {
-          default: "#000001",
+          default: "#0F1D45",
           primary: "#68CFA3",
           content1: "#FFFFFF",
           content2: "#16181A",

@@ -1,14 +1,18 @@
 'use client';
-import React from 'react';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/react';
-import { Button } from '@nextui-org/button';
-import ButtonLink from '@/app/shared/ButtonLink';
-import CloseIcon from '@/app/icons/CloseIcon';
 
-const ModalWindow = () => {
+import React from 'react';
+import { Modal, ModalContent, useDisclosure } from '@nextui-org/react';
+import ButtonLink from '@/app/shared/ButtonLink';
+import ContentForm from '@/app/shared/ContentForm';
+
+const ButtonModal = () => {
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+	const name = localStorage.getItem('name') === null ? '' : localStorage.getItem('name');
+	const phone = localStorage.getItem('phone') === null ? '' : localStorage.getItem('phone');
+
+
 	return (
-		<div className={'flex space-x-2'}>
+		<div className={'flex space-x-10 justify-between'}>
 			<ButtonLink
 				onOpen={onOpen}
 				lineColor={'#133457'}
@@ -35,13 +39,15 @@ const ModalWindow = () => {
 					wrapper: 'justify-start',
 					backdrop: 'bg-[#0F1D45]/60 backdrop-opacity-95',
 					base: ' border-[#292f46] bg-[#0F1D45] text-white',
-					closeButton: 'hover:bg-white/5 active:bg-white/10 text-white opacity-80',
+					closeButton: 'text-white mt-4 mr-4 opacity-60 text-4xl ',
 				}}
 			>
 				<ModalContent>
 					{(onClose) => (
-						<>
-						</>
+						<ContentForm
+							nameLocal={String(name)}
+							phoneLocal={String(phone)}
+						/>
 					)}
 				</ModalContent>
 			</Modal>
@@ -49,4 +55,4 @@ const ModalWindow = () => {
 	);
 };
 
-export default ModalWindow;
+export default ButtonModal;

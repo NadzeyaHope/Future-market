@@ -1,10 +1,11 @@
 import React from 'react';
 import LogoIcon from '@/app/icons/LogoIcon';
 import Line from '@/app/shared/Line';
+import clsx from 'clsx';
 
-const Logo = () => {
+const Logo = ({className} : {className? : string}) => {
 	return (
-		<div className={'block m-auto'}>
+		<div className={clsx('block', className)}>
 			<Line/>
 			<div className={'mt-2.5'} />
 			<LogoIcon/>

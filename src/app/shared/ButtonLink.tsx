@@ -2,14 +2,15 @@ import React from 'react';
 import LinkIcon from '@/app/icons/LinkIcon';
 import { Button } from '@nextui-org/button';
 import clsx from 'clsx';
+import { InteractOutsideProps, PressEvent } from '@react-aria/interactions';
 
 interface Props {
 	className?: string;
-	onOpen: () => void;
+	onOpen: (e : PressEvent)=>void;
 	children: string;
 	lineColor : string;
 }
-//bg-[#133457]
+
 const ButtonLink = (props: Props) => {
 	const { onOpen, className, children, lineColor, } = props;
 	return (
