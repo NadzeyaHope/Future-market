@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@/app/shared/Container';
 import Header from '@/app/widgets/Header';
 import Content from '@/app/widgets/Content';
+import { Image } from '@nextui-org/image';
 
 const Home = () => {
 	return (
@@ -9,8 +10,8 @@ const Home = () => {
 			<Header/>
 			<div className={'flex justify-between'} >
 				<Content />
-					<img
-						className={'w-[275px] bottom-0 fixed right-[-80px] z-[1] lg:mt-auto lg:relative lg:h-[808px] lg:w-[525px] bg-fixed'}
+					<Image
+						className={'w-[275px] bottom-0 md:relative md:w-[625px] md:mt-[100%] fixed right-[-80px] z-[1]'}
 						alt={'mentor'}
 						src={'/mentor2.png'}
 					/>
