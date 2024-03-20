@@ -5,9 +5,16 @@ import Content from '@/app/widgets/Content';
 
 const Home = () => {
 	return (
-		<Container className={'md:h-full'} >
+		<Container >
 			<Header/>
-			<Content/>
+			<div className={'flex justify-between'} >
+				<Content />
+					<img
+						className={'w-[275px] bottom-0 fixed right-[-80px] z-[1] lg:mt-auto lg:relative lg:h-[808px] lg:w-[525px] bg-fixed'}
+						alt={'mentor'}
+						src={'/mentor2.png'}
+					/>
+			</div>
 		</Container>
 	);
 };

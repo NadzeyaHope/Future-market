@@ -10,9 +10,9 @@ interface Props {
 const CountGBP = (props : Props) => {
 	const {count, children} = props;
 	return (
-		<div className={clsx('border-l-1 space-y-7 text-white pl-6',`font-sans ${montserrat.variable}`)}>
-			<div className={'text-3xl'}>{count}</div>
-			<p className={'text-white font-normal text-sm opacity-50'}>{children}</p>
+		<div className={clsx('border-l-1 space-y-2 md:space-y-7 text-white pl-3 md:pl-6',`font-sans ${montserrat.variable}`)}>
+			<div className={'text-sm md:text-3xl font-semibold'}>{count}</div>
+			<p className={'text-white font-normal text-xs md:text-sm opacity-50'}>{children}</p>
 		</div>
 	);
 };

@@ -18,13 +18,12 @@ const InputMy = (props : Props) =>  {
 						value={value}
 						type="text"
 						onChange={(e)=>{onChange(e)}}
-						className={''}
 						variant={'flat'}
 						label={label}
 						classNames={{
 							base : ['bg-none border-b-1 opacity-60'],
-							label : ['text-white ml-[-10px] font-normal text-xl'],
-							input : ['text-white font-normal text-xl'],
+							label : ['text-white mb-[-20px] md:mb-0  ml-[-10px] font-normal text-sm md:text-xl'],
+							input : ['text-white mb-[-5px] md:mb-0 font-normal text-sm md:text-xl'],
 						}}
 					/>
 				</div>

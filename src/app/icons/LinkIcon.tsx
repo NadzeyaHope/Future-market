@@ -5,10 +5,8 @@ const LinkIcon = ({className, color} : {className? : string, color : string}) =>
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="22"
-			height="22"
 			fill="none"
-			className={clsx('mt-8', className)}
+			className={clsx('w-6 h-6 mt-auto mb-2 ml-auto mr-1 justify-end', className)}
 		>
 			<path
 				stroke={color}

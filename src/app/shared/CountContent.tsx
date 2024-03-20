@@ -9,7 +9,7 @@ const CountContent = async () => {
 	const count = getCount();
 
 	return (
-		<div className={'flex space-x-40'}>
+		<div className={'flex space-x-[52px] md:space-x-40'}>
 			<CountGBP
 				count={`${count}+`}
 			>техник для достижения целей</CountGBP>

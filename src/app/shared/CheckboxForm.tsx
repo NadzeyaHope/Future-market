@@ -21,8 +21,8 @@ const CheckboxForm = (props : Props) => {
 			className={'text-white opacity-60'}
 			classNames={{
 				base: ['rounded-none gap-[23px]'],
-				label: ['text-white text-sm font-normal'],
-				wrapper: ['w-[30px] h-[30px] border-1 border-white'],
+				label: ['text-white text-xs md:text-sm font-normal'],
+				wrapper: ['w-[15px] h-[15px] md:w-[30px] md:h-[30px] border-1 border-white'],
 			}}
 		>
 			{children}

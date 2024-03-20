@@ -5,9 +5,9 @@ import ButtonModal from '@/app/shared/ButtonModal';
 const Content = () => {
 
 	return (
-		<div className={'mt-32 ml:mt-44 flex'}>
+		<div className={'mt-32 relative z-[2] max-w-[300px] md:max-w-[800px] ml:mt-44 flex'}>
 			<div className={'w-full'}>
-				<h1 className={'text-2xl font-semibold ml:text-5xl text-white'}>
+				<h1 className={'text-2xl font-semibold md:text-5xl text-white'}>
 					Создаю условия для вашего успеха
 				</h1>
 				<div className={'mt-[53px]'}/>
@@ -19,11 +19,11 @@ const Content = () => {
 					Ваш успех зависит от ваших действий
 				</p>
 				<div className={'mt-[64px]'}/>
-				<ButtonModal/>
-				<div className={'mt-[115px]'}/>
+					<ButtonModal/>
+				<div className={'mt-[93px] md:mt-[115px]'}/>
 				<CountContent/>
+				<div className={'mt-28'} />
 			</div>
-			<img alt={'mentor'} className={'w-[275px] h-full lg:w-[525px]'} src={'/mentor2.png'}/>
 		</div>
 	);
 };

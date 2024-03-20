@@ -8,8 +8,8 @@ import SussesModalContent from '@/app/shared/SussesModalContent';
 
 
 const ContentForm = () => {
-	const [name, setName] = useState('');
-	const [phone, setPhone] = useState('');
+	const [name, setName] = useState<string>('');
+	const [phone, setPhone] = useState<string>('');
 	const [check, setCheck] = useState(false);
 	const [isInvalidName, setIsInvalidName] = useState(false);
 	const [isInvalidPhone, setIsInvalidPhone] = useState(false);
@@ -17,10 +17,10 @@ const ContentForm = () => {
 	const [susses, setSusses] = useState(false);
 
 	useEffect(() => {
-		const name = localStorage.getItem('name') === null ? '' : localStorage.getItem('name');
-		const phone = localStorage.getItem('phone') === null ? '' : localStorage.getItem('phone');
-		setName(name);
-		setPhone(phone);
+		const name = localStorage.getItem('name') === null ? ' ' : localStorage.getItem('name');
+		const phone = localStorage.getItem('phone') === null ? ' ' : localStorage.getItem('phone');
+		setName(String(name));
+		setPhone(String(phone));
 	}, []);
 
 
@@ -55,10 +55,11 @@ const ContentForm = () => {
 		setSusses(true);
 	};
 	return (
-		<>
+		<div className={'px-8'}>
+			<div className={'mt-[96px]'}/>
 			{!susses ?
-				<form onSubmit={onSubmit} className={'max-w-lg m-auto space-y-[66px]'}>
-					<p className={'text-4xl'}>Закажите обратный звонок</p>
+				<form onSubmit={onSubmit} className={'max-w-lg m-auto space-y-[55px] md:space-y-[66px]'}>
+					<p className={'text-xl font-semibold md:text-4xl'}>Закажите обратный звонок</p>
 					<MyInput
 						isInvalid={isInvalidName}
 						value={name}
@@ -80,20 +81,22 @@ const ContentForm = () => {
 					>
 						Согласен на сохранение и обработку персональных данных
 					</CheckboxForm>
-					<Button
-						type={'submit'}
-						size={'lg'}
-						className={clsx('rounded-none p-0 border-l-0 w-[380px] h-[71px] text-lg font-semibold text-[#07305D] bg-opacity-20 bg-[#133457] text-white border-2 border-white')}
-					>
-						<div className={'m-auto'}>
-							Заказать обратный звонок
-						</div>
-						<div className={clsx('h-full w-0.5', `bg-[#FFFFFF]`)}/>
-						<LinkIcon color={'#FFFFFF'} className={'w-full ml-5'}/>
-					</Button>
-				</form> : <SussesModalContent/>
+						<Button
+							type={'submit'}
+							size={'lg'}
+							className={clsx('rounded-none px-3 md:p-0 border-l-0 md:w-[380px] h-[71px] text-lg font-semibold bg-opacity-20 bg-[#133457] text-white border-2 border-white')}
+						>
+							<div className={'m-auto'}>
+								Заказать обратный звонок
+							</div>
+							<div className={clsx('h-full w-0.5', `bg-[#FFFFFF]`)}/>
+							<LinkIcon color={'#FFFFFF'} className={'w-full ml-5'}/>
+						</Button>
+				</form>
+				:
+				<SussesModalContent/>
 			}
-		</>
+		</div>
 	);
 };
 
