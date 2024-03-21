@@ -17,8 +17,8 @@ const ContentForm = () => {
 	const [susses, setSusses] = useState(false);
 
 	useEffect(() => {
-		const name = localStorage.getItem('name') === null ? ' ' : localStorage.getItem('name');
-		const phone = localStorage.getItem('phone') === null ? ' ' : localStorage.getItem('phone');
+		const name = localStorage.getItem('name') === null ? '' : localStorage.getItem('name');
+		const phone = localStorage.getItem('phone') === null ? '' : localStorage.getItem('phone');
 		setName(String(name));
 		setPhone(String(phone));
 	}, []);
